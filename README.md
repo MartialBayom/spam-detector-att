@@ -1,4 +1,4 @@
-# 🕵️ AT&T — Détecteur de Spam par Deep Learning
+# 🕵️ AT&T Détecteur de Spam par Deep Learning
 
 > *Classifier automatiquement des SMS comme spam ou ham grâce au Deep Learning — Bi-LSTM et Transfer Learning avec DistilBERT*
 
@@ -74,8 +74,6 @@ jupyter notebook notebooks/spam_detector_att.ipynb
 | | Nom | Rôle |
 |---|---|---|
 | 🧑‍💻 | **Martial BAYOM** | Data Science |
-
-Projet réalisé dans le cadre de la **certification Jedha AI School** (RNCP Niveau 6)
 
 ---
 
