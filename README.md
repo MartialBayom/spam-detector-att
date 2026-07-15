@@ -1,4 +1,4 @@
-# 🕵️ AT&T — Détecteur de Spam par Deep Learning
+# 🕵️ AT&T Détecteur de Spam par Deep Learning
 
 > *Classifier automatiquement des SMS comme spam ou ham grâce au Deep Learning — Bi-LSTM et Transfer Learning avec DistilBERT*
 
@@ -16,10 +16,10 @@ AT&T reçoit des millions de SMS par jour. L'entreprise cherche un système **au
 
 ## 📊 Résultats
 
-| Modèle | F1 (Spam) | AUC-ROC | Paramètres |
-|---|---|---|---|
-| Bi-LSTM | ~0.95 | ~0.99 | ~500K |
-| **DistilBERT ⭐** | **~0.98** | **~0.999** | **66M** |
+| Modèle | Accuracy | F1 (Spam) | Precision | Recall | AUC-ROC | Paramètres |
+|---|---|---|---|---|---|---|
+| Bi-LSTM | 0.9749 | 0.9091 | 0.8861 | 0.9333 | 0.9901 | ~500K |
+| **DistilBERT ⭐** | **0.9875** | **0.9517** | 0.9857 | 0.9200 | **0.9986** | 66M |
 
 > Dataset déséquilibré : **86.6% ham / 13.4% spam** → F1-score comme métrique principale.
 
@@ -51,10 +51,10 @@ spam-detector/
 
 ## 📈 Insights clés
 
-- **57%** des SMS sont identifiés comme spam dans le dataset
-- Les spams sont **significativement plus longs** que les ham (signal discriminant fort)
+- **13.4%** des SMS du dataset sont des spams (86.6% ham) — dataset déséquilibré
+- Les spams sont **significativement plus longs** que les ham (138.9 caractères en moyenne contre 71.0 — signal discriminant fort)
 - **DistilBERT** comprend le contexte sémantique — distingue "free" dans un spam vs "feel free" dans un ham
-- Recommandation : seuil abaissé à **0.3** pour minimiser les faux négatifs côté AT&T
+- Sur ce dataset, **DistilBERT surpasse le Bi-LSTM** sur toutes les métriques, notamment le F1-score (0.9517 vs 0.9091)
 
 ---
 
@@ -74,8 +74,6 @@ jupyter notebook notebooks/spam_detector_att.ipynb
 | | Nom | Rôle |
 |---|---|---|
 | 🧑‍💻 | **Martial BAYOM** | Data Science |
-
-Projet réalisé dans le cadre de la **certification Jedha AI School** (RNCP Niveau 6)
 
 ---
 
