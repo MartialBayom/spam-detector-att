@@ -1,31 +1,31 @@
-# 🕵️ AT&T Détecteur de Spam par Deep Learning
+# AT&T Détecteur de Spam par Deep Learning
 
 > *Classifier automatiquement des SMS comme spam ou ham grâce au Deep Learning — Bi-LSTM et Transfer Learning avec DistilBERT*
 
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?logo=pytorch)](https://pytorch.org/)
-[![HuggingFace](https://img.shields.io/badge/🤗-Transformers-FFD21E)](https://huggingface.co/)
+[![HuggingFace](https://img.shields.io/badge/-Transformers-FFD21E)](https://huggingface.co/)
 
 ---
 
-## 🎯 Objectif
+## Objectif
 
 AT&T reçoit des millions de SMS par jour. L'entreprise cherche un système **automatisé** pour détecter les spams dès leur réception, basé uniquement sur le contenu du message.
 
 ---
 
-## 📊 Résultats
+## Résultats
 
 | Modèle | Accuracy | F1 (Spam) | Precision | Recall | AUC-ROC | Paramètres |
 |---|---|---|---|---|---|---|
 | Bi-LSTM | 0.9749 | 0.9091 | 0.8861 | 0.9333 | 0.9901 | ~500K |
-| **DistilBERT ⭐** | **0.9875** | **0.9517** | 0.9857 | 0.9200 | **0.9986** | 66M |
+| **DistilBERT ** | **0.9875** | **0.9517** | 0.9857 | 0.9200 | **0.9986** | 66M |
 
 > Dataset déséquilibré : **86.6% ham / 13.4% spam** → F1-score comme métrique principale.
 
 ---
 
-## 🗂️ Structure du projet
+## Structure du projet
 
 ```
 spam-detector/
@@ -40,7 +40,7 @@ spam-detector/
 
 ---
 
-## 🧠 Modèles
+## Modèles
 
 | Modèle | Architecture | Détail |
 |---|---|---|
@@ -49,7 +49,7 @@ spam-detector/
 
 ---
 
-## 📈 Insights clés
+## Insights clés
 
 - **13.4%** des SMS du dataset sont des spams (86.6% ham) — dataset déséquilibré
 - Les spams sont **significativement plus longs** que les ham (138.9 caractères en moyenne contre 71.0 — signal discriminant fort)
@@ -58,7 +58,7 @@ spam-detector/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```bash
 git clone https://github.com/MartialBayom/spam-detector-att.git
@@ -69,15 +69,15 @@ jupyter notebook notebooks/spam_detector_att.ipynb
 
 ---
 
-## 👤 Auteur
+## Auteur
 
 | | Nom | Rôle |
 |---|---|---|
-| 🧑‍💻 | **Martial BAYOM** | Data Science |
+| | **Martial BAYOM** | Data Science |
 
 ---
 
-## 📂 Sources
+## Sources
 
 | Dataset | Lien |
 |---|---|
