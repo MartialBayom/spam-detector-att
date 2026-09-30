@@ -18,10 +18,10 @@ AT&T reçoit des millions de SMS par jour. L'entreprise cherche un système **au
 
 | Modèle | Accuracy | F1 (Spam) | Precision | Recall | AUC-ROC | Paramètres |
 |---|---|---|---|---|---|---|
-| Bi-LSTM | 0.9749 | 0.9091 | 0.8861 | 0.9333 | 0.9901 | ~500K |
-| **DistilBERT ** | **0.9875** | **0.9517** | 0.9857 | 0.9200 | **0.9986** | 66M |
+| Bi-LSTM | 0.9749 | 0.9091 | 0.8861 | 0.9333 | 0.9901 | ~1M |
+| **DistilBERT** | **0.9875** | **0.9517** | 0.9857 | 0.9200 | **0.9986** | 66M |
 
-> Dataset déséquilibré : **86.6% ham / 13.4% spam** → F1-score comme métrique principale.
+> Dataset déséquilibré : **86.6% ham / 13.4% spam** → l'accuracy est trompeuse (prédire toujours « ham » = 86.6 %), le **F1-score** est la métrique principale. Métriques calculées sur le test set (558 SMS dont 75 spams).
 
 ---
 
@@ -44,8 +44,8 @@ spam-detector/
 
 | Modèle | Architecture | Détail |
 |---|---|---|
-| **Bi-LSTM** | Embedding → LSTM bidirectionnel → Linear | Entraîné from scratch, ~500K params |
-| **DistilBERT** | Transformer pré-entraîné + tête de classification | Fine-tuning avec dégel progressif |
+| **Bi-LSTM** | Embedding → LSTM bidirectionnel (2 couches) → Linear | Entraîné from scratch, ~1M params — `BCEWithLogitsLoss` + `pos_weight` ≈ 6.5 |
+| **DistilBERT** | Transformer pré-entraîné + tête de classification | Dégel progressif (tête, puis dernière couche) — Cross-Entropy |
 
 ---
 
@@ -54,7 +54,8 @@ spam-detector/
 - **13.4%** des SMS du dataset sont des spams (86.6% ham) — dataset déséquilibré
 - Les spams sont **significativement plus longs** que les ham (138.9 caractères en moyenne contre 71.0 — signal discriminant fort)
 - **DistilBERT** comprend le contexte sémantique — distingue "free" dans un spam vs "feel free" dans un ham
-- Sur ce dataset, **DistilBERT surpasse le Bi-LSTM** sur toutes les métriques, notamment le F1-score (0.9517 vs 0.9091)
+- **DistilBERT** obtient le meilleur F1 (0.9517 vs 0.9091), la meilleure precision (1 seul faux positif contre 9) et la meilleure AUC
+- Le **Bi-LSTM** garde un recall légèrement supérieur (0.9333 vs 0.9200)
 
 ---
 
